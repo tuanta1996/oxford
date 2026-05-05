@@ -374,4 +374,8 @@ video {
     video {
         max-height: 30vh;
     }
+
+    .track-list-container, .video-list-container {
+        max-height: 40vh; /* Adapt list height to always leave room for Nav/Header */
+    }
 }
