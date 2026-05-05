@@ -278,6 +278,8 @@ video {
         border-top: 1px solid var(--border-glass);
         justify-content: space-around;
         align-items: center;
+        z-index: 1000; /* Ensure it is on top of everything */
+        background: var(--bg-dark); /* Solid background to prevent overlap transparency issues */
     }
 
     .sidebar .logo {
