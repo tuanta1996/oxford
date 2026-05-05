@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxford Phonics World 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Phonics World 1</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-view="books">📚 Books</li>
+                <li data-view="cd1">🎵 Audio CD 1</li>
+                <li data-view="cd2">🎵 Audio CD 2</li>
+                <li data-view="videos">🎬 Videos</li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <!-- Books View -->
+            <section id="books-view" class="view-section active">
+                <div class="view-header">
+                    <h2>Books</h2>
+                    <div class="book-selector">
+                        <button class="btn active" data-pdf="Oxford_Phonics_World_1_SB.pdf">Student Book</button>
+                        <button class="btn" data-pdf="Oxford_Phonics_World_1_WB.pdf">Workbook</button>
+                    </div>
+                </div>
+                <div class="pdf-container">
+                    <iframe id="pdf-viewer" src="Oxford_Phonics_World_1_SB.pdf" frameborder="0"></iframe>
+                </div>
+            </section>
+
+            <!-- Audio View -->
+            <section id="audio-view" class="view-section hidden">
+                <div class="view-header">
+                    <h2 id="audio-title">Audio Player</h2>
+                </div>
+                <div class="audio-player-container">
+                    <div class="now-playing">
+                        <div class="disc-animation">🎵</div>
+                        <h3 id="current-track-name">Select a track...</h3>
+                    </div>
+                    <audio id="main-audio" controls>
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div class="track-list-container">
+                        <ul id="track-list" class="track-list">
+                            <!-- Tracks will be dynamically populated -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Video View -->
+            <section id="videos-view" class="view-section hidden">
+                <div class="view-header">
+                    <h2>Videos</h2>
+                </div>
+                <div class="video-container">
+                    <video id="main-video" controls>
+                        <source src="" type="video/mp4">
+                        Your browser does not support HTML video.
+                    </video>
+                    <div class="video-list-container">
+                        <ul id="video-list" class="video-list">
+                            <!-- Videos will be dynamically populated -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
