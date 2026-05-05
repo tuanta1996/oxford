@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --primary: #4F46E5;
     --primary-hover: #4338CA;
     --bg-dark: #0f172a;
@@ -19,14 +19,37 @@ body {
     background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
     color: var(--text-primary);
     height: 100vh;
+    height: -webkit-fill-available;
     overflow: hidden;
 }
 
 .app-container {
     display: flex;
     height: 100vh;
+    height: -webkit-fill-available;
     width: 100%;
     backdrop-filter: blur(20px);
+}
+
+.mobile-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-glass);
+    padding: 1rem;
+    z-index: 100;
+    text-align: center;
+}
+
+.mobile-header h1 {
+    font-size: 1.2rem;
+    background: linear-gradient(to right, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .sidebar {
@@ -237,5 +260,103 @@ video {
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255,255,255,0.3);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: 70px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        flex-direction: row;
+        padding: 0;
+        border-right: none;
+        border-top: 1px solid var(--border-glass);
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sidebar .logo {
+        display: none;
+    }
+
+    .nav-links {
+        flex-direction: row;
+        width: 100%;
+        gap: 0;
+        justify-content: space-evenly;
+        height: 100%;
+    }
+
+    .nav-links li {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        border-radius: 0;
+        font-size: 0.7rem;
+        gap: 4px;
+    }
+
+    .nav-links li:hover {
+        transform: none;
+    }
+
+    .nav-links li.active {
+        box-shadow: none;
+        background: transparent;
+        color: var(--primary);
+    }
+
+    .nav-text {
+        font-size: 0.7rem;
+    }
+
+    .mobile-header {
+        display: block;
+    }
+
+    .content-area {
+        padding: 5rem 1rem 5rem 1rem; /* space for header and bottom nav */
+    }
+
+    .view-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .view-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .book-selector {
+        display: flex;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .book-selector .btn {
+        flex: 1;
+        margin: 0;
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .audio-player-container, .video-container {
+        padding: 1rem;
+    }
+
+    .disc-animation {
+        font-size: 3rem;
+    }
+
+    video {
+        max-height: 30vh;
+    }
 }

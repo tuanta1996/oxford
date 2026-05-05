@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,16 +9,21 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar Navigation -->
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <h1>Phonics World 1</h1>
+        </header>
+
+        <!-- Sidebar Navigation (Desktop) / Bottom Nav (Mobile) -->
         <nav class="sidebar">
             <div class="logo">
                 <h1>Phonics World 1</h1>
             </div>
             <ul class="nav-links">
-                <li class="active" data-view="books">📚 Books</li>
-                <li data-view="cd1">🎵 Audio CD 1</li>
-                <li data-view="cd2">🎵 Audio CD 2</li>
-                <li data-view="videos">🎬 Videos</li>
+                <li class="active" data-view="books"><span>📚</span> <span class="nav-text">Books</span></li>
+                <li data-view="cd1"><span>🎵</span> <span class="nav-text">Audio 1</span></li>
+                <li data-view="cd2"><span>🎵</span> <span class="nav-text">Audio 2</span></li>
+                <li data-view="videos"><span>🎬</span> <span class="nav-text">Videos</span></li>
             </ul>
         </nav>
 
