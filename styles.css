@@ -219,7 +219,7 @@ video {
 }
 
 .track-list-container, .video-list-container {
-    flex: 1;
+    max-height: 500px; /* Approximately 10 items at ~50px each */
     overflow-y: auto;
     border-radius: 0.5rem;
     background: rgba(0,0,0,0.2);
