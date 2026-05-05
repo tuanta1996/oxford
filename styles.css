@@ -107,8 +107,7 @@ body {
     flex-direction: column;
     padding: 2rem;
     position: relative;
-    overflow-y: auto; /* Changed from overflow: hidden to allow overall scrolling */
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden; /* Prevent overall scroll, let sub-containers scroll */
 }
 
 .view-section {
@@ -173,6 +172,7 @@ body {
 }
 
 .audio-player-container, .video-container {
+    flex: 1; /* Restore growing to fill space */
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -180,7 +180,7 @@ body {
     border: 1px solid var(--border-glass);
     border-radius: 1rem;
     padding: 2rem;
-    min-height: min-content; /* Allow container to wrap content */
+    overflow: hidden; /* Contain scrolling children */
 }
 
 .now-playing {
@@ -217,10 +217,12 @@ video {
 }
 
 .track-list-container, .video-list-container {
+    flex: 1;
+    overflow-y: auto;
     border-radius: 0.5rem;
     background: rgba(0,0,0,0.2);
     padding: 1rem;
-    /* Removed overflow-y: auto to let the main content area handle scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
 }
 
 .track-list, .video-list {
@@ -325,9 +327,13 @@ video {
     }
 
     .content-area {
-        padding: 4rem 0.75rem 6rem 0.75rem; /* space for header and bottom nav */
-        overflow-y: auto;
+        padding: 4rem 0.75rem 5rem 0.75rem; /* space for header and bottom nav */
+        overflow: hidden; /* Internal scrolling only */
         height: 100%;
+    }
+
+    .audio-player-container, .video-container {
+        height: calc(100vh - 180px); /* Explicit height calculation to force internal scroll */
     }
 
     .view-header h2 {
