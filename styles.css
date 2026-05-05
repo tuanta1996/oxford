@@ -106,7 +106,8 @@ body {
     flex-direction: column;
     padding: 2rem;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto; /* Changed from overflow: hidden to allow overall scrolling */
+    -webkit-overflow-scrolling: touch;
 }
 
 .view-section {
@@ -171,7 +172,6 @@ body {
 }
 
 .audio-player-container, .video-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -179,6 +179,7 @@ body {
     border: 1px solid var(--border-glass);
     border-radius: 1rem;
     padding: 2rem;
+    min-height: min-content; /* Allow container to wrap content */
 }
 
 .now-playing {
@@ -215,11 +216,10 @@ video {
 }
 
 .track-list-container, .video-list-container {
-    flex: 1;
-    overflow-y: auto;
     border-radius: 0.5rem;
     background: rgba(0,0,0,0.2);
     padding: 1rem;
+    /* Removed overflow-y: auto to let the main content area handle scrolling on mobile */
 }
 
 .track-list, .video-list {
